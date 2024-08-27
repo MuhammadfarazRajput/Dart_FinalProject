@@ -2,10 +2,7 @@
 class MenuItem {
   String name;
   double price;
-
   MenuItem(this.name, this.price);
-
-  
   String toString() {
     return '$name -- $price \Rupees';
   }
@@ -14,16 +11,12 @@ class MenuItem {
 // Class to represent an order
 class Order {
   List<MenuItem> items = [];
-
   void addItem(MenuItem item) {
     items.add(item);
   }
-
   double calculateTotal() {
     return items.fold(0, (total, item) => total + item.price);
-  }
-
-  @override
+  }@override
   String toString() {
     return items.map((item) => item.toString()).join(', ');
   }
@@ -33,11 +26,9 @@ class Order {
 class Restaurant {
   List<MenuItem> menu = [];
   Order order = Order();
-
   void addMenuItem(MenuItem item) {
     menu.add(item);
   }
-
   void showMenu() {
     if (menu.isEmpty) {
       print('The menu is currently empty.');
@@ -58,12 +49,10 @@ MenuItem? findMenuItemByName(String itemName) {
     return null; // If no item is found, return null
   }
 }
-
   void placeOrder(MenuItem item) {
     order.addItem(item);
     print('Item added to order: ${item.name}');
   }
-
   void checkout() {
     if (order.items.isEmpty) {
       print('No items ordered.');
